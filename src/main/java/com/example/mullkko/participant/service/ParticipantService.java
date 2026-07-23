@@ -3,6 +3,8 @@ package com.example.mullkko.participant.service;
 import com.example.mullkko.global.apiPayload.exception.ProjectException;
 import com.example.mullkko.participant.code.ParticipantErrorCode;
 import com.example.mullkko.participant.domain.SessionParticipant;
+import com.example.mullkko.participant.dto.ParticipantRequestDto;
+import com.example.mullkko.participant.dto.ParticipantResponseDto;
 import com.example.mullkko.participant.repository.ParticipantRepository;
 import com.example.mullkko.session.domain.Session;
 import com.example.mullkko.session.repository.SessionRepository;
@@ -20,17 +22,17 @@ public class ParticipantService {
     private final SessionRepository sessionRepository;
 
     @Transactional
-    public Long joinSession(String sessionCode, Long userId){
-        Session session = sessionRepository.findBySessionCode(sessionCode)
+    public Long joinSession(ParticipantRequestDto.JoinSessionRequestDto request){
+        Session session = sessionRepository.findBySessionCode(request.getSessionCode())
                 .orElseThrow(() -> new ProjectException(ParticipantErrorCode.SESSION_NOT_FOUND));
-        User user = userRepository.findById(userId)
+        User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new ProjectException(ParticipantErrorCode.USER_NOT_FOUND));
 
         SessionParticipant participant = SessionParticipant
                 .createSessionParticipant(session, user);
 
         participantRepository.save(participant);
-        return session.getId();
+        return ParticipantResponseDto.JoinResponseDto.from(session);
     }
 
 
