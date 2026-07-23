@@ -17,12 +17,16 @@ public class UserResponseDto {
     @Schema(description = "사용자 고유 PK", example = "1")
     private Long userId;
 
+    @Schema(description = "익명 닉네임", example = "익명 사자 #104")
+    private String nickname;
+
     @Schema(description = "계정 생성 일시", example = "2026-07-23T12:00:00")
     private LocalDateTime createdAt;
 
     public static UserResponseDto from(User user) {
         return UserResponseDto.builder()
                 .userId(user.getId())
+                .nickname(user.getNickname())
                 .createdAt(user.getCreatedAt())
                 .build();
     }

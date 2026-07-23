@@ -24,12 +24,26 @@ public class User {
     @Column(name = "kakao_id", nullable = false, unique = true)
     private String kakaoId;
 
+    @Column(name = "nickname")
+    private String nickname;
+
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Builder
-    public User(String kakaoId) {
+    @PrePersist
+    public void prePersist() {
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
+        }
+        if (this.nickname == null || this.nickname.isBlank()) {
+            this.nickname = "익명 사자 #" + (int)(Math.random() * 900 + 100);
+        }
+    }
+
+    public User(String kakaoId, String nickname) {
         this.kakaoId = kakaoId;
+        this.nickname = (nickname != null) ? nickname : "익명 사자 #" + (int)(Math.random() * 900 + 100);
+        this.createdAt = LocalDateTime.now();
     }
 }

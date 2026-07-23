@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface ParticipantRepository extends JpaRepository<SessionParticipant, Long> {
     List<SessionParticipant> findBySessionId(Long sessionId);
+    List<SessionParticipant> findByUserId(Long userId);
     boolean existsBySessionIdAndUserId(Long sessionId, Long userId);
 }
