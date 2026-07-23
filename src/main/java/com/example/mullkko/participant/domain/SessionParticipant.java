@@ -1,6 +1,6 @@
 package com.example.mullkko.participant.domain;
 
-import com.example.mullkko.global.session.domain.Session;
+import com.example.mullkko.session.domain.domain.Session;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

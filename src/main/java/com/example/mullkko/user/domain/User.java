@@ -1,4 +1,4 @@
-package com.example.mullkko.global.user.domain;
+package com.example.mullkko.user.domain;
 
 import jakarta.persistence.Entity;
 
