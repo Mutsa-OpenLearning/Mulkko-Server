@@ -1,6 +1,6 @@
 package com.example.mullkko.participant.domain;
 
-import com.example.mullkko.session.domain.domain.Session;
+import com.example.mullkko.session.domain.Session;
 import com.example.mullkko.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
