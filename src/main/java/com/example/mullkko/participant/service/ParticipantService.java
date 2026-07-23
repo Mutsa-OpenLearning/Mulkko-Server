@@ -1,6 +1,5 @@
 package com.example.mullkko.participant.service;
 
-import com.example.mullkko.global.apiPayload.GlobalResponse;
 import com.example.mullkko.global.apiPayload.exception.ProjectException;
 import com.example.mullkko.participant.code.ParticipantErrorCode;
 import com.example.mullkko.participant.domain.SessionParticipant;

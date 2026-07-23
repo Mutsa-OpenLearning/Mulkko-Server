@@ -1,5 +1,8 @@
-package com.example.mullkko.user;
+package com.example.mullkko.user.controller;
 
+import com.example.mullkko.user.dto.UserResponseDto;
+import com.example.mullkko.user.service.UserService;
+import com.example.mullkko.user.config.UserApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;

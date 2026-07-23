@@ -1,6 +1,9 @@
-package com.example.mullkko.user;
+package com.example.mullkko.user.service;
 
 import com.example.mullkko.global.apiPayload.code.UserErrorCode;
+import com.example.mullkko.user.domain.User;
+import com.example.mullkko.user.dto.UserResponseDto;
+import com.example.mullkko.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
