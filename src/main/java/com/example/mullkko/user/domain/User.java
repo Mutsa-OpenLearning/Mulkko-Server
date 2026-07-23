@@ -1,4 +1,4 @@
-package com.example.mullkko.user;
+package com.example.mullkko.user.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

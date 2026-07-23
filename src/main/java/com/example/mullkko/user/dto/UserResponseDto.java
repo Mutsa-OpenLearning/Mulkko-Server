@@ -1,5 +1,6 @@
-package com.example.mullkko.user;
+package com.example.mullkko.user.dto;
 
+import com.example.mullkko.user.domain.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

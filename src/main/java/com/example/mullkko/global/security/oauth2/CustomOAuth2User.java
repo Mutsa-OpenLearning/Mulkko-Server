@@ -1,6 +1,6 @@
 package com.example.mullkko.global.security.oauth2;
 
-import com.example.mullkko.user.User;
+import com.example.mullkko.user.domain.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

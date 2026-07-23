@@ -1,7 +1,7 @@
 package com.example.mullkko.global.security.oauth2;
 
-import com.example.mullkko.user.User;
-import com.example.mullkko.user.UserRepository;
+import com.example.mullkko.user.domain.User;
+import com.example.mullkko.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
