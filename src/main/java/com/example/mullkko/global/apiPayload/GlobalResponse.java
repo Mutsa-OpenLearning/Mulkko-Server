@@ -1,6 +1,7 @@
 package com.example.mullkko.global.apiPayload;
 
 import com.example.mullkko.global.apiPayload.code.BaseErrorCode;
+import com.example.mullkko.global.apiPayload.code.GeneralSuccessCode;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AccessLevel;
