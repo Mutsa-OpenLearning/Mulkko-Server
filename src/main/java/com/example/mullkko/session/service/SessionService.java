@@ -7,8 +7,8 @@ import com.example.mullkko.session.dto.SessionRequestDto;
 import com.example.mullkko.session.dto.SessionResponseDto;
 import com.example.mullkko.session.repository.SessionRepository;
 
-import com.example.mullkko.user.User;
-import com.example.mullkko.user.UserRepository;
+import com.example.mullkko.user.domain.User;
+import com.example.mullkko.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
