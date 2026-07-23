@@ -7,13 +7,13 @@ import com.example.mullkko.session.dto.SessionRequestDto;
 import com.example.mullkko.session.dto.SessionResponseDto;
 import com.example.mullkko.session.repository.SessionRepository;
 
-import com.example.mullkko.user.domain.User;
-import com.example.mullkko.user.repository.UserRepository;
+import com.example.mullkko.user.User;
+import com.example.mullkko.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @RequiredArgsConstructor
@@ -28,7 +28,7 @@ public class SessionService {
         User host = userRepository.findById(request.getHostId())
                 .orElseThrow(() -> new ProjectException(UserErrorCode.USER_NOT_FOUND));
 
-        // 2. 중복 없는 6자리 난수 PIN 코드 생성 (예: "A8X92B")
+        // 2. 중복 없는 6자리 숫자 PIN 코드 생성 (예: "849201")
         String sessionCode = generateUniqueSessionCode();
 
         // 3. 세션 엔티티 생성 및 DB 저장
@@ -45,11 +45,12 @@ public class SessionService {
         return SessionResponseDto.CreateSessionResponseDto.from(session);
     }
 
-    // 6자리 난수 PIN 코드 생성 메서드 (중복 발생 시 재생성)
+    // 6자리 숫자 PIN 코드 생성 메서드 (100000 ~ 999999)
     private String generateUniqueSessionCode() {
         String code;
         do {
-            code = UUID.randomUUID().toString().substring(0, 6).toUpperCase();
+            int randomNumber = ThreadLocalRandom.current().nextInt(100000, 1000000);
+            code = String.valueOf(randomNumber);
         } while (sessionRepository.existsBySessionCode(code));
         return code;
     }
