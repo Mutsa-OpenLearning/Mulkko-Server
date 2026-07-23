@@ -1,5 +1,6 @@
 package com.example.mullkko.participant.service;
 
+import com.example.mullkko.global.apiPayload.GlobalResponse;
 import com.example.mullkko.global.apiPayload.exception.ProjectException;
 import com.example.mullkko.participant.code.ParticipantErrorCode;
 import com.example.mullkko.participant.domain.SessionParticipant;
@@ -22,7 +23,7 @@ public class ParticipantService {
     private final SessionRepository sessionRepository;
 
     @Transactional
-    public Long joinSession(ParticipantRequestDto.JoinSessionRequestDto request){
+    public ParticipantResponseDto.JoinResponseDto joinSession(ParticipantRequestDto.JoinSessionRequestDto request){
         Session session = sessionRepository.findBySessionCode(request.getSessionCode())
                 .orElseThrow(() -> new ProjectException(ParticipantErrorCode.SESSION_NOT_FOUND));
         User user = userRepository.findById(request.getUserId())

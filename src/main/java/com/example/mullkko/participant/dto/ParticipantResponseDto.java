@@ -16,16 +16,18 @@ public class ParticipantResponseDto {
     @AllArgsConstructor
     public static class JoinResponseDto {
         private Long sessionId;
+        private String sessionCode;
         private String sessionTitle;
-        private String message;
+        private String description;
+        private String imageUrl;
 
         public static JoinResponseDto from(Session session) {
             return JoinResponseDto.builder()
                     .sessionId(session.getId())
                     .sessionCode(session.getSessionCode())
                     .sessionTitle(session.getTitle())
-                    .hostNickname(session.getHost() != null ? session.getHost().getNickname() : "발표자")
-                    .status(session.getStatus() != null ? session.getStatus().name() : "ONGOING")
+                    .description(session.getDescription())
+                    .imageUrl(session.getImageUrl())
                     .build();
         }
     }
